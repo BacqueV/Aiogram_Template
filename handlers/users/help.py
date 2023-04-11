@@ -6,6 +6,8 @@ from loader import dp
 
 @dp.message_handler(CommandHelp())
 async def bot_help(message: types.Message):
-    text = "explain here how can your bot help"
+    text = ("Commands: ",
+            "/start - Starts the bot",
+            "/help - Explains how does this bot work")
     
-    await message.answer(text)
+    await message.answer("\n".join(text))

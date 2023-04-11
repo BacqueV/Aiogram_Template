@@ -1,25 +1,22 @@
 from aiogram import executor
 
 from loader import dp, db
-# don't delete this unused imports, without them nothing will work
-import middlewares
-import filters
-import handlers
+# Don't delete this unused import, without them nothing will work
+import middlewares, filters, handlers
 from utils.notify_admins import on_startup_notify
 from utils.set_bot_commands import set_default_commands
 
 
 async def on_startup(dispatcher):
-    # simple commands (/start & /help)
+    # Creating Database:
+    await db.create()
+    # await db.drop_users()
+    await db.create_table_users()
+
+    # Default commands (/start va /help)
     await set_default_commands(dispatcher)
 
-    # creating db:
-    try:
-        db.create_table_users()
-    except Exception as err:
-        print(err)
-
-    # notify the admin that the bot has started
+    # inform the administration that the bot has started
     await on_startup_notify(dispatcher)
 
 

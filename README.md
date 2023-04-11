@@ -1,2 +1,2 @@
 # Aiogram-Template
-Python | Telegram Bot
+telegram bot on POstgreSQL
