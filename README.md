@@ -1,2 +1,2 @@
 # Aiogram-Template
-telegram bot on POstgreSQL
+Telegram bot on PostgreSQL
